@@ -1,0 +1,19 @@
+extends ../../layouts/view
+
+block content
+	.home.grid__item-sm--12
+		.grid
+			item(v-for='item in items', :item='item')
+
+			.home__item.grid__item-sm--6.grid__item-md--4.grid__item-lg--3
+				router-link.card.card--muted.color--muted.p--little(to='/add')
+					p
+						+icon('add')
+					p.text--minute Adicione aqui
+
+		.bottom-bar
+			router-link.bottom-bar__item.bottom-bar__main.button.button--alt.button--icon.button--icon--large.button--success(to='/add')
+				+icon('add')
+
+			button.bottom-bar__item.button.button--alt.button--icon.button--danger(@click='clearItems')
+				+icon('delete')

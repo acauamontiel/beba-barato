@@ -1,0 +1,15 @@
+extends ../../layouts/component
+
+block content
+	nav.layout__navbar.navbar.navbar--expand-lg
+		.navbar__collapse
+			ul.navbar__nav
+				li.navbar__nav__item
+					router-link.navbar__link(to='/') Início
+				li.navbar__nav__item
+					router-link.navbar__link(to='/about') Sobre
+
+		router-link.navbar__brand(to='/') Bebida em Conta
+
+		button.navbar__menu(type='button')
+			+icon('menu')

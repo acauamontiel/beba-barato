@@ -1,0 +1,33 @@
+/*
+ * Layout
+ */
+
+$auto-minsize = minmax(min-content, max-content)
+
+.layout
+	display grid
+	grid-template-areas 'navbar' 'main'
+	grid-template-columns auto
+	grid-template-rows $auto-minsize auto
+	padding-bottom 100px
+
+	@media $from.lg
+		grid-template-columns auto
+
+	&__navbar
+		grid-area navbar
+		z-index navbar
+
+	&__main
+		grid-area main
+		padding $spacing-snug
+		z-index main
+
+		@media $from.lg
+			padding $spacing-widish $spacing-vast
+			width auto
+
+	&__add
+		position fixed !important
+		bottom $spacing-snug
+		right $spacing-snug

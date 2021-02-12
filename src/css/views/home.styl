@@ -1,0 +1,67 @@
+/*
+ * Home
+ */
+
+.home
+	&__item
+		margin-bottom $size-normal
+
+		&:nth-child(odd)
+			padding-right $size-mini
+
+		&:nth-child(even)
+			padding-left $size-mini
+
+		@media $from.md
+			&:nth-child(odd)
+				padding-right unset
+
+			&:nth-child(even)
+				padding-left unset
+
+			&:nth-child(3n)
+				padding-left $size-mini
+
+			&:nth-child(3n+1)
+				padding-right $size-mini
+
+			&:nth-child(3n+2)
+				padding-left $size-mini
+				padding-right $size-mini
+
+		@media $from.lg
+			&:nth-child(3n)
+				padding-left unset
+
+			&:nth-child(3n+1)
+				padding-right unset
+
+			&:nth-child(3n+2)
+				padding-left unset
+				padding-right unset
+
+			&:nth-child(4n)
+				padding-left $size-mini
+
+			&:nth-child(4n+1)
+				padding-right $size-mini
+
+			&:nth-child(4n+2)
+			&:nth-child(4n+3)
+				padding-left $size-mini
+				padding-right $size-mini
+
+		&__quantity
+			margin-left $size-mini
+
+		&__clear
+			absolute top $size-quark right $size-quark
+			size $size-big
+			font-size $size-little
+			color $theme-neutral-light
+
+			.icon
+				position center
+
+		.card
+			position relative

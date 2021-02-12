@@ -1,0 +1,32 @@
+{
+	"presets": ["@babel/preset-env"],
+	"plugins": [
+		[
+			"module-resolver",
+			{
+				"root": "./src",
+				"alias": {
+					"@root": "./",
+					"@js": "./src/js",
+					"@app": "./src/js/app",
+					"@components": "./src/js/components",
+					"@directives": "./src/js/directives",
+					"@helpers": "./src/js/helpers",
+					"@middlewares": "./src/js/middlewares",
+					"@mixins": "./src/js/mixins",
+					"@modules": "./src/js/modules",
+					"@router": "./src/js/router",
+					"@services": "./src/js/services",
+					"@store": "./src/js/store",
+					"@views": "./src/js/views"
+				}
+			}
+		],
+		[
+			"babel-plugin-dotenv",
+			{
+				"replacedModuleName": "babel-dotenv"
+			}
+		]
+	]
+}

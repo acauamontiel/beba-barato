@@ -1,0 +1,142 @@
+/*
+ * Forms
+ */
+
+
+.form
+	&--error
+		// @stylint off
+		& ^[0]__field
+			border-color $theme-danger !important
+			box-shadow none
+		// @stylint on
+
+		& ^[0]__label
+			color $theme-danger !important
+
+		& ^[0]__message
+			color $theme-danger
+
+	&__set
+		position relative
+
+	&__message
+		margin-top $spacing-narrow
+		font-size $size-little
+
+	&__label
+		font-size $size-small
+		color $theme-neutral-murk
+		transform-origin 0 0
+
+	&__field
+		position relative
+		display block
+		padding $size-medium $size-normal $size-tiny
+		width 100%
+		font-size $size-small
+		line-height 1.145
+		color $theme-neutral-dark
+		background $theme-neutral-shine
+		border 1px solid transparent
+		box-shadow $shadow-small
+		transition $transition-fast
+		transition-property border-color, box-shadow
+
+		&--symbol
+			absolute top 50% right $size-medium
+			width auto
+			text-align left
+			transform translateY(-50%)
+			color $theme-neutral-clear
+
+		&::placeholder
+			color transparent
+
+		&:focus
+			border-color $theme-primary
+			outline none
+			box-shadow none
+
+		&:disabled
+		&[disabled]
+			background $theme-neutral-bright
+			border-color $theme-neutral-light
+			box-shadow none
+			pointer-events none
+
+			& + ^[0]__label
+				color $theme-neutral-clear
+
+	&__checkbox
+	&__radio
+	&__switch
+		display inline-flex
+		align-items center
+		font-size $size-small
+
+		&__input
+			position relative
+			margin-right $spacing-narrow
+			box-shadow $shadow-default
+			transition-duration $transition-fast
+			transition-property background, border-color, box-shadow
+
+			&:focus
+			&:checked
+				box-shadow none
+
+			&:focus
+				border-color $theme-primary
+
+	&__checkbox
+		&__input
+			size $size-normal
+			background $theme-neutral-shine
+			border 1px solid $theme-neutral-medium
+			border-radius $size-nano
+
+			&:checked
+				background $theme-primary
+				border-color $theme-primary
+
+			&:before
+				content ''
+				absolute top 50% left 50%
+				size 5px 9px
+				border solid $theme-neutral-shine
+				border-width 0 2px 2px 0
+				transform translate(-50%, -50%) rotate(45deg)
+
+	&__radio
+		&__input
+			size $size-normal
+			border 1px solid $theme-neutral-medium
+			border-radius 50%
+
+			&:checked
+				background $theme-primary
+				border-color $theme-primary
+
+	&__switch
+		&__input
+			size $size-grand $size-little
+			border 1px solid $theme-neutral-medium
+			border-radius $size-little
+
+			&:checked
+				border-color $theme-primary
+
+				&:before
+					background $theme-primary
+					transform translate(100%, -50%)
+
+			&:before
+				content ''
+				absolute top 50% left -1px
+				size $size-normal
+				background $theme-neutral-medium
+				border-radius 50%
+				transform translate(0, -50%)
+				transition $transition-fast
+				transition-property background, transform

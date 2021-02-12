@@ -1,0 +1,38 @@
+extends ../../layouts/view
+
+block content
+	.add.grid__item-sm--12
+		form(@submit.prevent='submit')
+			field.space--loose(
+				v-model='volume',
+				label='Tamanho',
+				type='number',
+				:validation='validField(!$v.volume.$invalid)',
+				message='Tamanho em ml',
+				error-message='O volume em ml é obrigatório'
+			)
+
+			field.space--loose(
+				v-model.lazy='price',
+				label='Preço',
+				v-money='money',
+				inputmode='numeric',
+				:validation='validField(!$v.price.$invalid)',
+				error-message='O preço é obrigatório'
+			)
+
+			field.space--loose(
+				v-model='quantity',
+				label='Quantidade',
+				message='Em caso de compra em fardos',
+				type='number',
+				:validation='validField(!$v.quantity.$invalid)',
+				error-message='A quantidade deve ser maior que zero'
+			)
+
+			.bottom-bar
+				button.bottom-bar__item.bottom-bar__main.button.button--alt.button--icon.button--icon--large.button--success(type='submit')
+					+icon('done')
+
+				router-link.bottom-bar__item.button.button--alt.button--icon.button--danger(to='/')
+					+icon('clear')

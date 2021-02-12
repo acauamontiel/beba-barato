@@ -1,9 +1,3 @@
-<img src="logo.png" width="300">
-
-
-> O framework front-end da [Melhor Envio](https://www.melhorenvio.com.br).
-
-
 Running
 -------
 
@@ -95,4 +89,6 @@ README.md
 License
 -------
 
-© 2019 [Melhor Envio](https://www.melhorenvio.com.br)
+© 2021 [Acauã Montiel](http://acauamontiel.com.br)
+
+[MIT License](http://acaua.mit-license.org/)

@@ -5,7 +5,7 @@ export default function (components) {
 		// For the sake of curiosity: Immediately Invoked Function Expression
 		(function iife(component) {
 			Vue.component(component.name, (resolve) => {
-				axios.get(`/${component.type}s/${component.name}.html`).then((response) => {
+				axios.get(`./${component.type}s/${component.name}.html`).then((response) => {
 					component.template = response.data;
 					resolve(component);
 				});

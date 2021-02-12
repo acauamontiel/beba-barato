@@ -10927,7 +10927,7 @@ function _default(components) {
     // For the sake of curiosity: Immediately Invoked Function Expression
     (function iife(component) {
       Vue.component(component.name, function (resolve) {
-        _axios.default.get("/".concat(component.type, "s/").concat(component.name, ".html")).then(function (response) {
+        _axios.default.get("./".concat(component.type, "s/").concat(component.name, ".html")).then(function (response) {
           component.template = response.data;
           resolve(component);
         });

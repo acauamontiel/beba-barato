@@ -1,0 +1,7 @@
+
+<form-set :validation="validation" :message="message" :error-message="errorMessage">
+  <label class="form__label" slot="label">{{label}}
+    <textarea class="form__field" slot="field" v-if="type === &quot;textarea&quot;" v-model="_value" :name="name" :id="name" :inputmode="inputmode" :rows="rows || 5" :placeholder="label" :disabled="disabled"></textarea>
+    <input class="form__field" slot="field" v-else="v-else" v-model="_value" :type="type" :name="name" :id="name" :inputmode="inputmode" :placeholder="label" :disabled="disabled"/>
+  </label>
+</form-set>

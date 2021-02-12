@@ -1,0 +1,12 @@
+
+<div class="home__item grid__item-sm--6 grid__item-md--4 grid__item-lg--3">
+  <router-link class="card p--little" :class="{&quot;card--success&quot;: (!difference)}" :to="&quot;/edit/&quot; + item.id">
+    <p>{{item.volume}}ml<span class="home__item__quantity text--tiny text--muted" v-if="item.quantity &gt; 1">x {{item.quantity}}</span></p>
+    <p class="text--minute m--none grid grid--justify-between"><span>{{item.price}}</span><span class="text--tiny text--danger" v-if="difference">+{{difference}}%</span></p>
+    <button class="home__item__clear" @click.prevent="deleteItem(item.id)">
+      <svg class="icon icon--clear">
+        <use xlink:href="img/sprite.svg#clear"></use>
+      </svg>
+    </button>
+  </router-link>
+</div>

@@ -1,0 +1,20 @@
+
+<div class="add grid__item-sm--12">
+  <form @submit.prevent="submit">
+    <field class="space--loose" v-model="volume" label="Tamanho" type="number" :validation="validField(!$v.volume.$invalid)" message="Tamanho em ml" error-message="O volume em ml é obrigatório"></field>
+    <field class="space--loose" v-model.lazy="price" label="Preço" v-money="money" inputmode="numeric" :validation="validField(!$v.price.$invalid)" error-message="O preço é obrigatório"></field>
+    <field class="space--loose" v-model="quantity" label="Quantidade" message="Em caso de compra em fardos" type="number" :validation="validField(!$v.quantity.$invalid)" error-message="A quantidade deve ser maior que zero"></field>
+    <div class="bottom-bar">
+      <button class="bottom-bar__item bottom-bar__main button button--alt button--icon button--icon--large button--success" type="submit">
+        <svg class="icon icon--done">
+          <use xlink:href="img/sprite.svg#done"></use>
+        </svg>
+      </button>
+      <router-link class="bottom-bar__item button button--alt button--icon button--danger" to="/">
+        <svg class="icon icon--clear">
+          <use xlink:href="img/sprite.svg#clear"></use>
+        </svg>
+      </router-link>
+    </div>
+  </form>
+</div>

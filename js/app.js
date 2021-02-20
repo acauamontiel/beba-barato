@@ -10568,6 +10568,8 @@ exports.withParams = withParams;
 
 require("@babel/polyfill");
 
+var _theme = _interopRequireDefault(require("./services/theme"));
+
 var _vuelidate = _interopRequireDefault(require("vuelidate"));
 
 var _vMoney = _interopRequireDefault(require("v-money"));
@@ -10587,11 +10589,13 @@ Vue.use(_vMoney.default, {
 var app = new _index.default(),
     vm = new Vue((0, _main.default)());
 app.init(function () {
+  _theme.default.init();
+
   vm.$mount('#app');
   console.timeEnd('Initialize'); // eslint-disable-line no-console
 });
 
-},{"./app/index.js":365,"./components/main":370,"@babel/polyfill":1,"v-money":335,"vuelidate":336}],365:[function(require,module,exports){
+},{"./app/index.js":365,"./components/main":369,"./services/theme":378,"@babel/polyfill":1,"v-money":335,"vuelidate":336}],365:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10643,41 +10647,6 @@ var _formSet = _interopRequireDefault(require("./form-set"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = {
-  name: 'combobox',
-  type: 'component',
-  extends: _formSet.default,
-  props: ['options'],
-  computed: {
-    selectedName: function selectedName() {
-      var _this = this;
-
-      var selected = this.options.find(function (option) {
-        return option.id === _this._value;
-      });
-      return selected ? selected.name : null;
-    }
-  },
-  data: function data() {
-    return {
-      open: false
-    };
-  }
-};
-exports.default = _default;
-
-},{"./form-set":368}],367:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _formSet = _interopRequireDefault(require("./form-set"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var _default = {
   name: 'field',
   type: 'component',
   extends: _formSet.default,
@@ -10685,7 +10654,7 @@ var _default = {
 };
 exports.default = _default;
 
-},{"./form-set":368}],368:[function(require,module,exports){
+},{"./form-set":367}],367:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10712,7 +10681,7 @@ var _default = {
 };
 exports.default = _default;
 
-},{}],369:[function(require,module,exports){
+},{}],368:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10744,7 +10713,7 @@ var _default = {
 };
 exports.default = _default;
 
-},{"../modules/utils":376}],370:[function(require,module,exports){
+},{"../modules/utils":376}],369:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10765,7 +10734,7 @@ function _default() {
   };
 }
 
-},{"../router":377,"../store":378}],371:[function(require,module,exports){
+},{"../router":377,"../store":379}],370:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10873,7 +10842,37 @@ var _default = {
 };
 exports.default = _default;
 
-},{}],372:[function(require,module,exports){
+},{}],371:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _formSet = _interopRequireDefault(require("./form-set"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = {
+  name: 'radio',
+  type: 'component',
+  extends: _formSet.default,
+  props: ['options'],
+  computed: {
+    _value: {
+      get: function get() {
+        return this.value;
+      },
+      set: function set(newValue) {
+        this.$emit('change', newValue);
+      }
+    }
+  }
+};
+exports.default = _default;
+
+},{"./form-set":367}],372:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10969,7 +10968,7 @@ var _formSet = _interopRequireDefault(require("../components/form-set"));
 
 var _field = _interopRequireDefault(require("../components/field"));
 
-var _combobox = _interopRequireDefault(require("../components/combobox"));
+var _radio = _interopRequireDefault(require("../components/radio"));
 
 var _item = _interopRequireDefault(require("../components/item"));
 
@@ -10977,15 +10976,19 @@ var _home = _interopRequireDefault(require("../views/home"));
 
 var _add = _interopRequireDefault(require("../views/add"));
 
+var _settings = _interopRequireDefault(require("../views/settings"));
+
 var _about = _interopRequireDefault(require("../views/about"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _default() {
-  (0, _asyncComponents.default)([_navbar.default, _formSet.default, _field.default, _combobox.default, _item.default, _home.default, _add.default, _about.default]);
+  (0, _asyncComponents.default)([_navbar.default, _formSet.default, _field.default, _radio.default, _item.default, _home.default, _add.default, _settings.default, _about.default]);
 }
 
-},{"../components/combobox":366,"../components/field":367,"../components/form-set":368,"../components/item":369,"../components/navbar":371,"../views/about":379,"../views/add":380,"../views/home":381,"./async-components":373}],376:[function(require,module,exports){
+;
+
+},{"../components/field":366,"../components/form-set":367,"../components/item":368,"../components/navbar":370,"../components/radio":371,"../views/about":380,"../views/add":381,"../views/home":382,"../views/settings":383,"./async-components":373}],376:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -11037,6 +11040,13 @@ var routes = [{
     title: 'Editar'
   }
 }, {
+  path: '/settings',
+  name: 'settings',
+  component: Vue.component('settings'),
+  meta: {
+    title: 'Configurações'
+  }
+}, {
   path: '/about',
   name: 'about',
   component: Vue.component('about'),
@@ -11059,6 +11069,52 @@ var _default = router;
 exports.default = _default;
 
 },{"../modules/register":375}],378:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.get = get;
+exports.set = set;
+exports.default = void 0;
+var $html = document.querySelector('html'),
+    matchMediaElement = window.matchMedia('(prefers-color-scheme: dark)');
+
+function get() {
+  var theme = localStorage.getItem('theme');
+
+  if (!theme) {
+    localStorage.setItem('theme', 'auto');
+  }
+
+  return theme || 'auto';
+}
+
+function set(newtTheme) {
+  localStorage.setItem('theme', newtTheme);
+  check();
+}
+
+function check() {
+  if (get() === 'dark' || get() === 'auto' && matchMediaElement.matches) {
+    $html.classList.add('dark');
+    return;
+  }
+
+  $html.classList.remove('dark');
+}
+
+var _default = {
+  get: get,
+  set: set,
+  init: function init() {
+    check();
+    matchMediaElement.addListener(check);
+  }
+};
+exports.default = _default;
+
+},{}],379:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -11122,7 +11178,7 @@ var _default = new Vuex.Store({
 
 exports.default = _default;
 
-},{"../modules/utils":376}],379:[function(require,module,exports){
+},{"../modules/utils":376}],380:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -11135,7 +11191,7 @@ var _default = {
 };
 exports.default = _default;
 
-},{}],380:[function(require,module,exports){
+},{}],381:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -11229,7 +11285,7 @@ var _default = {
 };
 exports.default = _default;
 
-},{"../mixins/form-validator":372,"vuelidate/lib/validators":345}],381:[function(require,module,exports){
+},{"../mixins/form-validator":372,"vuelidate/lib/validators":345}],382:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -11252,4 +11308,47 @@ var _default = {
 };
 exports.default = _default;
 
-},{}]},{},[364]);
+},{}],383:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _theme = _interopRequireDefault(require("../services/theme"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = {
+  name: 'settings',
+  type: 'view',
+  data: function data() {
+    return {
+      theme: null,
+      themeOptions: [{
+        name: 'Automático',
+        id: 'auto'
+      }, {
+        name: 'Light',
+        id: 'light'
+      }, {
+        name: 'Dark',
+        id: 'dark'
+      }]
+    };
+  },
+  created: function created() {
+    this.theme = _theme.default.get();
+  },
+  methods: {
+    setTheme: function setTheme(newtTheme) {
+      this.theme = newtTheme;
+
+      _theme.default.set(newtTheme);
+    }
+  }
+};
+exports.default = _default;
+
+},{"../services/theme":378}]},{},[364]);

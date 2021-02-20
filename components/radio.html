@@ -1,0 +1,8 @@
+
+<form-set :validation="validation" :message="message" :error-message="errorMessage">
+  <div class="space--tight" v-for="option in options">
+    <label class="form__radio">
+      <input class="form__radio__input" type="radio" :value="option.id" v-model="_value"/>{{option.name}}
+    </label>
+  </div>
+</form-set>

@@ -27,7 +27,9 @@
 	&__label
 		font-size $size-small
 		color $theme-neutral-murk
-		transform-origin 0 0
+
+		/.dark &
+			color $theme-neutral-clear
 
 	&__field
 		position relative
@@ -36,12 +38,14 @@
 		width 100%
 		font-size $size-small
 		line-height 1.145
-		color $theme-neutral-dark
-		background $theme-neutral-shine
 		border 1px solid transparent
 		box-shadow $shadow-small
 		transition $transition-fast
 		transition-property border-color, box-shadow
+		default-colors()
+
+		/.dark &
+			border-color $theme-neutral-medium
 
 		&--symbol
 			absolute top 50% right $size-medium

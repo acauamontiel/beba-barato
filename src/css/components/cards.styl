@@ -4,14 +4,17 @@
 
 .card
 	display block
-	background $theme-neutral-shine
 	border $size-preon solid transparent
 	box-shadow $shadow-small
+	default-colors()
+
+	/.dark &
+		border-color $theme-neutral-dark
 
 	for $theme in $themes
 		unless $theme is 'neutral'
 			&--{$theme}
-				border-color lookup('$theme-' + $theme)
+				border-color lookup('$theme-' + $theme) !important
 				box-shadow none
 
 	for $neutral in $themes.neutral

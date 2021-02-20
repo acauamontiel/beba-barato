@@ -30,6 +30,14 @@ export const routes = [
 		}
 	},
 	{
+		path: '/settings',
+		name: 'settings',
+		component: Vue.component('settings'),
+		meta: {
+			title: 'Configurações'
+		}
+	},
+	{
 		path: '/about',
 		name: 'about',
 		component: Vue.component('about'),

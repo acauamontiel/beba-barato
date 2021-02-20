@@ -1,10 +1,11 @@
 /*
- * Versionalize
+ * Default colors
  */
 
-versionalize(path)
-	$dirname = dirname(path)
-	$extname = extname(path)
-	$basename = basename(path, $extname)
+default-colors()
+	background-color $theme-neutral-shine
+	color $theme-neutral-murk
 
-	return pathjoin($dirname, $basename + '-' + join('-', split('.', version)) + $extname)
+	/.dark &
+		background-color $theme-neutral-pitch-dark
+		color $theme-neutral-bright

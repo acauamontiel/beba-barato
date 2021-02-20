@@ -1,0 +1,8 @@
+extends ../../layouts/view
+
+block content
+	.settings.grid__item-sm--12
+		article.space--loose
+			h1.space--narrow.text-small Tema
+
+			radio(v-model='theme', :options='themeOptions', @change='setTheme')

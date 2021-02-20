@@ -4,9 +4,13 @@
 
 // Set button theme
 button-set-theme($theme = primary, $style = default)
+	$dark-percentage = 50%
 	$prop = $style is default ? background-color : color
 
 	{$prop} lookup('$theme-' + $theme)
+
+	/.dark &
+		{$prop} darken(lookup('$theme-' + $theme), $dark-percentage)
 
 	&:hover
 	&:focus
@@ -43,7 +47,7 @@ button-set-theme($theme = primary, $style = default)
 	&--alt
 	&--minimal
 		text-transform none
-		background transparent
+		background transparent !important
 
 		button-set-theme(primary, alt)
 

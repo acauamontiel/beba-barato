@@ -2,8 +2,10 @@
  * Navbar
  */
 
+$dark-percentage = 90%
+
 .navbar
-	@extend .background--primary, .color--neutral-shine
+	@extend .color--neutral-shine
 
 	position sticky
 	top 0
@@ -11,7 +13,11 @@
 	grid-align center
 	grid-justify between
 	padding $spacing-snug
+	background $theme-primary
 	box-shadow $shadow-large
+
+	/.dark &
+		background darken($theme-primary, $dark-percentage)
 
 	&--sticky
 		fixed top 0 left 0 right 0
@@ -54,14 +60,17 @@
 						display none
 
 	&__collapse
-		@extend .background--primary-light
 
 		absolute top 100% left 0 right 0
+		background $background-primary-light
 		transform translate3d(0, -($size-tiny), 0)
 		transform scaleY(.95)
 		transform-origin 50% 0
 		visible false
 		transition $transition-fast
+
+		/.dark &
+			background darken($theme-primary-light, $dark-percentage)
 
 	&__nav
 		display flex

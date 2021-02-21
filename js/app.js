@@ -10580,19 +10580,25 @@ var _main = _interopRequireDefault(require("./components/main"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-console.time('Initialize'); // eslint-disable-line no-console
-
 Vue.use(_vuelidate.default);
 Vue.use(_vMoney.default, {
   precision: 2
 });
 var app = new _index.default(),
     vm = new Vue((0, _main.default)());
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./js/sw.js').then(function (serviceWorker) {
+    console.log('Service Worker registered: ' + serviceWorker);
+  }).catch(function (error) {
+    console.log('Error registering the Service Worker: ' + error);
+  });
+}
+
 app.init(function () {
   _theme.default.init();
 
   vm.$mount('#app');
-  console.timeEnd('Initialize'); // eslint-disable-line no-console
 });
 
 },{"./app/index.js":365,"./components/main":369,"./services/theme":378,"@babel/polyfill":1,"v-money":335,"vuelidate":336}],365:[function(require,module,exports){

@@ -1,4 +1,3 @@
-console.time('Initialize'); // eslint-disable-line no-console
 import '@babel/polyfill';
 import Theme from '@services/theme';
 import Vuelidate from 'vuelidate'
@@ -12,8 +11,17 @@ Vue.use(Money, {precision: 2});
 const app = new App(),
 	vm = new Vue(main());
 
+if ('serviceWorker' in navigator) {
+	navigator.serviceWorker.register('./js/sw.js')
+		.then(serviceWorker => {
+			console.log('Service Worker registered: ' + serviceWorker);
+		})
+		.catch(error => {
+			console.log('Error registering the Service Worker: ' + error);
+		});
+}
+
 app.init(() => {
 	Theme.init();
 	vm.$mount('#app');
-	console.timeEnd('Initialize'); // eslint-disable-line no-console
 });

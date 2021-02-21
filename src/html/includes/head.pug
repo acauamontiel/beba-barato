@@ -6,6 +6,12 @@ head
 
 	include head/favicons
 	include head/info
+	script(
+		async,
+		src='https://cdn.jsdelivr.net/npm/pwacompat@2.0.8/pwacompat.min.js',
+		integrity='sha384-uONtBTCBzHKF84F6XvyC8S0gL8HTkAPeCyBNvfLfsqHh+Kd6s/kaS4BdmNQ5ktp1',
+		crossorigin='anonymous'
+	)
 
 	link(rel='stylesheet', type='text/css', href='./css/style.css')
 	-const webFonts = '//fonts.googleapis.com/css?family=Lato:400,700|Open+Sans:400,700&display=swap';

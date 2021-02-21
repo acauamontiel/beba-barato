@@ -1,0 +1,16 @@
+{
+  "name": "Bebida em Conta",
+  "short_name": "Bebida em Conta",
+  "description": "Calcule qual a bebida mais em conta",
+  "lang": "pt-BR",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "theme_color": "#f3b331",
+  "icons": [
+    {
+      "src": "./img/favicons/icon.svg",
+      "sizes": "512x512"
+    }
+  ]
+}

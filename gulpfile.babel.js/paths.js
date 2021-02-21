@@ -46,7 +46,7 @@ const src = './src/',
 		dest: dest,
 		manifest: [
 			`${src}copy/browserconfig.xml`,
-			`${src}copy/site.webmanifest`
+			`${src}copy/manifest.json`
 		]
 	};
 

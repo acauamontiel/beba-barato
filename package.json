@@ -67,7 +67,10 @@
     "v-money": "^0.8.1"
   },
   "dependencies": {
+    "vue": "^2.6.12",
+    "vue-router": "^3.5.1",
     "vue-the-mask": "^0.11.1",
-    "vuelidate": "^0.7.5"
+    "vuelidate": "^0.7.5",
+    "vuex": "^3.6.2"
   }
 }

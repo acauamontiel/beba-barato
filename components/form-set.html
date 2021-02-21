@@ -1,8 +1,1 @@
-
-<div class="form__set" :class="{&quot;form--error&quot;: !isValid}">
-  <slot></slot>
-  <slot name="field"></slot>
-  <slot name="label"></slot>
-  <p class="form__message" v-if="isValid &amp;&amp; message">{{message}}</p>
-  <p class="form__message" v-if="!isValid &amp;&amp; errorMessage">{{errorMessage}}</p>
-</div>
+<div class="form__set" :class="{&quot;form--error&quot;: !isValid}"><slot></slot><slot name="field"></slot><slot name="label"></slot><p class="form__message" v-if="isValid &amp;&amp; message">{{message}}</p><p class="form__message" v-if="!isValid &amp;&amp; errorMessage">{{errorMessage}}</p></div>

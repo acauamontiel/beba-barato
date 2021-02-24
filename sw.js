@@ -1,4 +1,4 @@
-const cacheName = '1.0',
+const cacheName = 'v1',
 	staticFiles = [
 		'.',
 		'components/field.html',

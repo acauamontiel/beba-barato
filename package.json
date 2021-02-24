@@ -1,6 +1,6 @@
 {
-  "name": "bebida-em-conta",
-  "version": "0.0.0",
+  "name": "beba-barato",
+  "version": "1.0.0",
   "description": "Calcule qual a bebida mais em conta",
   "main": "gulpfile.babel.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:melhor-envio/melhor-ui.git"
+    "url": "git@github.com:acauamontiel/beba-barato.git"
   },
   "keywords": [
     "template",

@@ -12,12 +12,7 @@ const app = new App(),
 	vm = new Vue(main());
 
 if ('serviceWorker' in navigator) {
-	navigator.serviceWorker.register('./sw.js', {
-		scope: location.host === 'acauamontiel.com.br' ? '/bebida-em-conta/' : '/'
-	})
-		.then(serviceWorker => {
-			console.table(serviceWorker);
-		})
+	navigator.serviceWorker.register('./sw.js')
 		.catch(error => {
 			console.log('Error registering the Service Worker: ' + error);
 		});
